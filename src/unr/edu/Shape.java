@@ -10,6 +10,11 @@ public class Shape implements Entity {
     }
 
     @Override
+    public void initGL() {
+
+    }
+
+    @Override
     public void tick(float dt) {
 
     }

@@ -112,6 +112,8 @@ public class Input implements Manager {
         float x = Mouse.getDX();
         float y = Mouse.getDY();
 
+        System.out.print("Mouse x: " + x + " y: " + y + "\r");
+
         handleKeyPresses();
 
     }
@@ -119,27 +121,27 @@ public class Input implements Manager {
     private void handleKeyPresses()
     {
         if(keyPresses.get(Keyboard.KEY_W)) {
-
+            engine.graphics.camera.moveForward();
         }
 
         if(keyPresses.get(Keyboard.KEY_A)) {
-
+            engine.graphics.camera.moveLeft();
         }
 
         if(keyPresses.get(Keyboard.KEY_S)) {
-
+            engine.graphics.camera.moveBackward();
         }
 
         if(keyPresses.get(Keyboard.KEY_D)) {
-
+            engine.graphics.camera.moveRight();
         }
 
         if(keyPresses.get(Keyboard.KEY_R)) {
-
+            engine.graphics.camera.moveUp();
         }
 
         if(keyPresses.get(Keyboard.KEY_F)) {
-
+            engine.graphics.camera.moveDown();
         }
 
     }

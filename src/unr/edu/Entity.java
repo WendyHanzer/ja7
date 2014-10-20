@@ -5,6 +5,7 @@ package unr.edu;
  */
 public interface Entity {
     public void init();
+    public void initGL();
     public void tick(float dt);
     public void render();
 }

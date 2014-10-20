@@ -109,6 +109,35 @@ public class Camera {
 
     public Matrix4f getView()
     {
-        return null;
+        Matrix4f view = new Matrix4f();
+
+        Vector3f F = new Vector3f(orientation.x - pos.x, orientation.y - pos.y, orientation.z - pos.z);
+        Vector3f f = F.normalise(null);
+        Vector3f upPrime = up.normalise(null);
+
+        Vector3f s = Vector3f.cross(f, upPrime, null);
+        Vector3f u = Vector3f.cross(s.normalise(null), f, null);
+
+        view.m00 = s.getX();
+        view.m01 = s.getY();
+        view.m02 = s.getZ();
+        view.m03 = 0.0f;
+
+        view.m10 = u.getX();
+        view.m11 = u.getY();
+        view.m12 = u.getZ();
+        view.m13 = 0.0f;
+
+        view.m20 = -f.getX();
+        view.m21 = -f.getY();
+        view.m22 = -f.getZ();
+        view.m23 = 0.0f;
+
+        view.m30 = 0.0f;
+        view.m31 = 0.0f;
+        view.m32 = 0.0f;
+        view.m33 = 1.0f;
+
+        return view;
     }
 }

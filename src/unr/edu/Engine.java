@@ -5,12 +5,8 @@ package unr.edu;
 import org.apache.commons.cli.*;
 import org.gdal.gdal.gdal;
 import org.gdal.ogr.ogr;
-import org.lwjgl.opengl.Display;
 
-import java.io.File;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by cam on 10/7/14.
@@ -23,6 +19,8 @@ public class Engine {
     private Clock clock;
     public Input input;
     public Graphics graphics;
+
+    public boolean running = true;
 
    public Engine(String[] cmd_args)
    {
@@ -52,7 +50,7 @@ public class Engine {
 
         clock.init();
 
-        while(!Display.isCloseRequested()) {
+        while(running) {
             dt = clock.tick();
             input.tick(dt);
             graphics.tick(dt);
